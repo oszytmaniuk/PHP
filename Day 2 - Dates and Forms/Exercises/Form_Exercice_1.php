@@ -35,10 +35,26 @@
 </head>
 
 <body>
-	irst and last name
-	<form action="" method="post">
-		<input type="text" name="firstname" placeholder="First Name">
-		<input type="text" name="lastname" placeholder="Last Name">
+
+	<?php
+	$firstName = '';
+	//$_POST($firstName);
+	if (isset($_POST["firstname"])) {
+		$firstName = $_POST["firstname"];
+		echo 'Hello, ' . $_POST["firstname"];
+	}
+	$lastName = '';
+	if (isset($_POST["lastname"])) {
+		$lastName = $_POST["lastname"];
+		echo 'Thanks ' . $_POST["firstname"] . 'for your lastname: ' . $_POST["lastname"];
+	}
+	var_dump($_POST);
+	?>
+
+
+	<form action="" method="POST">
+		<input type="text" name="firstname" placeholder="First Name" value="<?php echo $firstName ?>">
+		<input type="text" name="lastname" placeholder="Last Name" value="<?php echo $lastName ?>">
 		<input type="submit" name="submit">
 	</form>
 </body>
