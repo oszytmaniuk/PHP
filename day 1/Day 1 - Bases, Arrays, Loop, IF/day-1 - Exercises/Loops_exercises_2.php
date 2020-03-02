@@ -42,6 +42,22 @@ echo '<h3>Exercise 2</h3>';
 		* 
 
 	*/
+for ($i = 1; $i <= 5; $i++) {
+	for ($star_counter = 1; $star_counter <= $i; $star_counter++) {
+		echo '*';
+	}
+	echo '<br>';
+}
+for ($i = 5; $i <= 5; $i++) {
+	for ($star_counter = 1; $star_counter <= $i; $star_counter++) {
+		echo '*';
+	}
+	echo '<br>';
+}
+
+
+
+
 echo '<br>';
 echo '<hr>';
 echo '<h3>Exercise 3</h3>';
@@ -60,7 +76,7 @@ $style = array(
 	1 => "Pop",
 	2 => "Rock"
 );
-$mergeArray = array();
+$array3 = array();
 foreach ($style as $key => $value) {
 	$array3[$value] = $artists[$key];
 };
@@ -117,8 +133,8 @@ foreach ($transactions as $key => $value) {
 }
 var_dump($transactions);
 
-		// Expected results : 
-		/*$transactions = array(
+// Expected results : 
+/*$transactions = array(
 		    "Marie" => array(
 		        "debit"=>6,
 		        "credit"=>9,
@@ -141,7 +157,9 @@ var_dump($transactions);
 		    )
 		);
 	*/
-
+echo '<br>';
+echo '<hr>';
+echo '<h3>Final Exercise</h3>';
 	/*
 	- Final exercise - ONLY FOR THE BEASTS
 
@@ -167,4 +185,5 @@ var_dump($transactions);
 
 	        echo "Missing number is: " . $var;
 
-	*/
+	
+*/
