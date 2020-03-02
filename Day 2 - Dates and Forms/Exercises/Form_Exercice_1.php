@@ -8,6 +8,21 @@
 
 	2.Now, display the first and last name in the textbox, even after the button is clicked.
 
+	<?php
+	$firstName = '';
+	//$_POST($firstName);
+	if (isset($_POST["firstname"])) {
+		$firstName = $_POST["firstname"];
+		echo 'Hello, ' . $firstName . '<br>';
+	}
+	$lastName = '';
+	if (isset($_POST["lastname"])) {
+		$lastName = $_POST["lastname"];
+		echo 'Thanks ' . $firstName . ' for your lastname: ' . $lastName;
+	}
+	var_dump($_POST);
+
+	
 	3. Suppose our site has only 5 authorized users.
 	These users are contained in a table.
 	For example: $users = array ("johnny hallyday", "simon bertrand", "tom hanks", "toto tata", "john");
@@ -37,20 +52,30 @@
 <body>
 
 	<?php
-	$firstName = '';
-	//$_POST($firstName);
-	if (isset($_POST["firstname"])) {
-		$firstName = $_POST["firstname"];
-		echo 'Hello, ' . $_POST["firstname"];
-	}
-	$lastName = '';
-	if (isset($_POST["lastname"])) {
-		$lastName = $_POST["lastname"];
-		echo 'Thanks ' . $_POST["firstname"] . 'for your lastname: ' . $_POST["lastname"];
-	}
-	var_dump($_POST);
-	?>
+	$users = array("johnny hallyday", "simon bertrand", "tom hanks", "toto tata", "john");
 
+	$firstName = '';
+	$lastName = '';
+	if (isset($_POST["submit"])) {
+		$firstName = $_POST['firstname'];
+		$lastName = $_POST['lastname'];
+
+		//put all the results to FALSE as default:
+		$found = false;
+
+		//looping thru the array of users:
+		foreach ($users as $key => $value) {
+			if (trim($value) == $firstName . ' ' . $lastName) {
+				$found = true;
+				break;
+			}
+		}
+		if ($found)
+			echo "Welcome";
+		else
+			echo 'You\'re not allowed';
+	};
+	?>
 
 	<form action="" method="POST">
 		<input type="text" name="firstname" placeholder="First Name" value="<?php echo $firstName ?>">
