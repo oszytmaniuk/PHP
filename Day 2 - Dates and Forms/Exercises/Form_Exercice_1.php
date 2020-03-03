@@ -85,13 +85,13 @@
 
 		// Display a format date for a specific timestamp
 		//echo date('m-d-Y', $timeStamp);
-		$timeNow = '';
+		//$timeNow = '';
 		if (isset($_POST['submit'])) {
 			$timeNow = $_POST['date'];
 			$timeStamp = strtotime($timeNow);
-			echo "timespan for picked date is $timeStamp <br>";
+			//echo "timespan for picked date is $timeStamp <br>";
 			$timeSpanNow = strtotime('now');
-			echo "timespan for now is $timeSpanNow <br>";
+			//echo "timespan for now is $timeSpanNow <br>";
 			$spanDif = $timeSpanNow - $timeStamp;
 			echo "Time span btw picked and now is $spanDif";
 		}

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /*
     - Exercise : 
@@ -29,4 +29,52 @@
 			Bonus: Make the form values ​​reappear with each submission, in case of error.
     */
 
- ?>
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+
+	<?php
+	$firstname = '';
+	$lastname = '';
+	$email = '';
+	$pass = '';
+	$pasConf = '';
+	$ticked = false;
+	if (isset($_POST['submit'])) {
+		$firstname = $_POST['firstname'];
+		$lastname = $_POST['laststname'];
+		$email = $_POST['email'];
+		$pass = $_POST['password'];
+		$pasConf = $_POST['confpass'];
+		echo "my Name is $firstname <br>";
+		echo "my Family Name is $laststname <br>";
+		echo "my email is $email <br>";
+		echo "my Pass is $pass <br>";
+	}
+
+	
+
+	?>
+
+	<form action="recap-signin.php" method="POST">
+		<input type="text" name="firstname" placeholder="Name"><br>
+		<input type="text" name="laststname" placeholder="Family Name"><br>
+		<input type="email" name="email" placeholder="email"><br>
+		<input type="password" name="password" placeholder="password"><br>
+		<input type="password" name="confpass"> <br>
+		<label for="">Subscribe to the newsletter</label>
+		<input type="checkbox" name="subscribe"><br>
+		<input type="submit" name="submit">
+	</form>
+
+</body>
+
+</html>
