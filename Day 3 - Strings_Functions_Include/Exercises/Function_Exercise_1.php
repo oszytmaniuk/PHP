@@ -113,6 +113,7 @@ echo arrayValue($expensesArray);
 echo '<hr>';
 echo '<p style="font-weight: 900"> EXERCISE 4 </p>';
 
+
 /*
 -- Exercice 4
 
@@ -126,6 +127,12 @@ Example :
 
 */
 
+$string1 = 'kayak';
+$string2 = 'kurwamac';
+function checkString($script)
+{
+}
+
 echo '<hr>';
 echo '<p style="font-weight: 900"> EXERCISE 5 </p>';
 
@@ -134,8 +141,17 @@ echo '<p style="font-weight: 900"> EXERCISE 5 </p>';
 
 Write a function that checks if a number is a prime number.
 A prime number is an integer greater than 1 that can only be divided by itself and 1.
-
 */
+
+function prime($number)
+{
+
+	if ($number > 1 and (($number / $number) == 1))
+		echo 'Number ' . $number . ' is prime integer';
+	else
+		echo 'It is not integer: ' . $number;
+}
+prime(-1.5);
 
 echo '<hr>';
 echo '<p style="font-weight: 900"> EXERCISE 6 </p>';
@@ -221,6 +237,14 @@ Expected result :
             ....... );
 
  ?>
+
+
+
+
+
+
+
+
 
 
 
