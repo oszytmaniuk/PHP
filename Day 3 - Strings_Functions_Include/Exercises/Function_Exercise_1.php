@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 echo '<hr>';
 echo '<p style="font-weight: 900"> EXERCISE 1 </p>';
@@ -33,7 +33,22 @@ Write a function that:
     - Takes into parameter two numbers.
     - Check which is the largest number.
 
-The expected result is this:
+*/
+function largestNumber($nr1, $nr2)
+{
+	if ($nr1 == $nr2)
+		echo 'The two numbers are identical';
+	elseif ($nr1 < $nr2)
+		echo 'The first number is smaller';
+	else
+		echo 'The first number is larger';
+}
+echo largestNumber(12, 12);
+
+
+
+
+/*The expected result is this:
     The first number is larger (if the first number is larger than the second number)
     The first number is smaller (if the first number is smaller than the second number)
     The two numbers are identical (if the two numbers are equal)
@@ -50,14 +65,50 @@ echo '<p style="font-weight: 900"> EXERCISE 3 </p>';
 	Write a PHP script that:
 	    - Create an array of John's expenses.
 	    - Calculates the sum of John's expenses over the year
+	*/
 
-	3.2
+echo '<p style="font-weight: 900"> EXERCISE 3.1 </p>';
+$expensesArray = array(
+	'January' => 3700,
+	'February' => 4700,
+	'March' => 3700,
+	'April' => 3000,
+	'May' => 5000,
+	'June' => 3000,
+	'July' => 6000,
+	'August' => 2500,
+	'September' => 5000,
+	'October' => 4000,
+	'November' => 5000,
+	'December' => 6000,
+);
+$sum = 0;
+foreach ($expensesArray as $key => $value) {
+	$sum += $value;
+}
+echo $sum;
+
+echo '<hr>';
+echo '<p style="font-weight: 900"> EXERCISE 3.2 </p>';
+/*3.2
 	Write a function that will:
 	- Take an expense array as input
 	- Calculate the sum of the expenses of the table
 	- return this sum
 
 */
+function arrayValue($array)
+{
+	$sum = 0;
+	foreach ($array as $key => $value) {
+		$sum += $value;
+	}
+	echo $sum;
+}
+echo arrayValue($expensesArray);
+
+
+
 
 echo '<hr>';
 echo '<p style="font-weight: 900"> EXERCISE 4 </p>';
@@ -170,3 +221,30 @@ Expected result :
             ....... );
 
  ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
