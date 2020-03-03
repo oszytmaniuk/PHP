@@ -131,11 +131,24 @@ echo '<p style="font-weight: 900"> EXERCISE 5 </p>';
 
 /*
 -- Exercice 5
-
 Write a function that checks if a number is a prime number.
 A prime number is an integer greater than 1 that can only be divided by itself and 1.
-
 */
+
+function primeNumber($num)
+{
+	//$mod = 0;
+	for ($i=2; $i <12 ; $i++) { 
+		$mod = $i % $num;
+		//echo $i . '<br>';
+		echo $mod;
+	}
+	//cho $i . '<br>';
+	//echo $mod;
+
+
+}
+primeNumber(1);
 
 echo '<hr>';
 echo '<p style="font-weight: 900"> EXERCISE 6 </p>';
@@ -151,6 +164,13 @@ Example :
     	> Displays <img src='skate.jpg'>
 
 */
+
+function htmlImages($src)
+{
+	return 'Display <img src = '.$src.'>';
+}
+
+htmlImages('skate.jpg');
 
 echo '<hr>';
 echo '<p style="font-weight: 900"> EXERCISE 7 </p>';
@@ -172,6 +192,13 @@ Write a function that:
     - Call your function with the numbers 10 and 2.
     - Call your function with a single number: 4
 */
+
+function multiplication($num1, $num2)
+{
+	$result = $num1 * $num2;
+	echo $result;
+}
+multiplication(10,2);
 
 echo '<hr>';
 echo '<p style="font-weight: 900"> EXERCISE 8 </p>';
@@ -221,7 +248,6 @@ Expected result :
             ....... );
 
  ?>
-
 
 
 
