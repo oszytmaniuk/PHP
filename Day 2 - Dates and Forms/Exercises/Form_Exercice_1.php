@@ -38,20 +38,20 @@
 	Do not worry about what's in the input once the button is clicked.
 */
 ?>
+< <!DOCTYPE html>
+	<html lang="en">
 
-<!DOCTYPE html>
-<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Form Exercise 1</title>
+	</head>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Form Exercise 1</title>
-</head>
+	<body>
 
-<body>
-
-	<?php
+		<?php
+		/*
 	$users = array("johnny hallyday", "simon bertrand", "tom hanks", "toto tata", "john");
 
 	$firstName = '';
@@ -75,13 +75,38 @@
 		else
 			echo 'You\'re not allowed';
 	};
-	?>
+	*/
 
-	<form action="" method="POST">
-		<input type="text" name="firstname" placeholder="First Name" value="<?php echo $firstName ?>">
-		<input type="text" name="lastname" placeholder="Last Name" value="<?php echo $lastName ?>">
-		<input type="submit" name="submit">
-	</form>
-</body>
+		// Return a timestamp for today
+		//$timeStamp = mktime($timeNow);
 
-</html>
+		//strototime to return a time from now. 
+		//$timeNow = strtotime('now');
+
+		// Display a format date for a specific timestamp
+		//echo date('m-d-Y', $timeStamp);
+		$timeNow = '';
+		if (isset($_POST['submit'])) {
+			$timeNow = $_POST['date'];
+			$timeStamp = strtotime($timeNow);
+			echo "timespan for picked date is $timeStamp <br>";
+			$timeSpanNow = strtotime('now');
+			echo "timespan for now is $timeSpanNow <br>";
+			$spanDif = $timeSpanNow - $timeStamp;
+			echo "Time span btw picked and now is $spanDif";
+		}
+
+
+
+
+		?>
+
+		<form action="" method="POST">
+			<!--<input type="text" name="firstname" placeholder="First Name" value="<?php echo $firstName ?>">
+		<input type="text" name="lastname" placeholder="Last Name" value="<?php echo $lastName ?>"> -->
+			<input type="date" name="date" id="date">
+			<input type="submit" name="submit">
+		</form>
+	</body>
+
+	</html>
