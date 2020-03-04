@@ -244,11 +244,12 @@ $revArray = array('Mod', 'Tue', 'Wed', 'Thur', 'Fri');
 function reverseArray(&$array)
 {
 	$arrayLength = count($array);
-	for ($i = $arrayLength - 1; $i >= 0; $i--) {
-		echo $array[$i] . ' ';
-		
+	for ($i = $arrayLength - 1; $i >= 0; $i--){
+		$array[] = $array[$i];
 	}
+	array_splice($array,0,$arrayLength);
 }
+
 reverseArray($revArray);
 var_dump($revArray);
 
