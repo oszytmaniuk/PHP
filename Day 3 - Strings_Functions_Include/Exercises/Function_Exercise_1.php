@@ -142,7 +142,6 @@ Write a function that checks if a number is a prime number.
 A prime number is an integer greater than 1 that can only be divided by itself and 1.
 */
 
-<<<<<<< HEAD
 function prime($number)
 {
 
@@ -152,7 +151,6 @@ function prime($number)
 		echo 'It is not integer: ' . $number;
 }
 prime(-1.5);
-=======
 function primeNumber($num)
 {
 	//$mod = 0;
@@ -167,7 +165,6 @@ function primeNumber($num)
 
 }
 primeNumber(1);
->>>>>>> 36103b77d5f8bc8734fa1a20b157b49523414238
 
 echo '<hr>';
 echo '<p style="font-weight: 900"> EXERCISE 6 </p>';
