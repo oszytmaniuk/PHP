@@ -127,11 +127,15 @@ Example :
 
 */
 
-$string1 = 'kayak';
-$string2 = 'kurwamac';
-function checkString($script)
+
+function checkString($string)
 {
+	if (strrev($string) == $string)
+		echo 'This string ' . $string . ' is a polindrome';
+	else
+		echo 'This string ' . $string . ' is NOT a polindrome';
 }
+checkString('kayak');
 
 echo '<hr>';
 echo '<p style="font-weight: 900"> EXERCISE 5 </p>';
@@ -151,10 +155,11 @@ function prime($number)
 		echo 'It is not integer: ' . $number;
 }
 prime(-1.5);
+
 function primeNumber($num)
 {
 	//$mod = 0;
-	for ($i=2; $i <12 ; $i++) { 
+	for ($i = 2; $i < 12; $i++) {
 		$mod = $i % $num;
 		//echo $i . '<br>';
 		echo $mod;
@@ -183,7 +188,7 @@ Example :
 
 function htmlImages($src)
 {
-	return 'Display <img src = '.$src.'>';
+	return 'Display <img src = ' . $src . '>';
 }
 
 htmlImages('skate.jpg');
@@ -209,12 +214,15 @@ Write a function that:
     - Call your function with a single number: 4
 */
 
-function multiplication($num1, $num2)
+function multiplication($num1 = 2, $num2 = 5)
 {
 	$result = $num1 * $num2;
-	echo $result;
+	//use return to reference to this point next time when calling the function
+	return $result;
 }
-multiplication(10,2);
+//echo function: this will reference to the return $result. 
+//there is also an option to use echo $result and function multiplication() instead.
+echo multiplication(5, 10);
 
 echo '<hr>';
 echo '<p style="font-weight: 900"> EXERCISE 8 </p>';
@@ -225,6 +233,18 @@ echo '<p style="font-weight: 900"> EXERCISE 8 </p>';
 	You can use only one other variable (simple, no array).
 	You can only use count() or strlen() function.
 */
+
+$revArray = array('Mod', 'Tue', 'Wed', 'Thur', 'Fri');
+function reverseArray($array)
+{
+	$arrayLength = count($array);
+	for ($i = $arrayLength - 1; $i >= 0; $i--) {
+		echo $array[$i] . ' ';
+	}
+}
+reverseArray($revArray);
+
+
 
 echo '<hr>';
 echo '<p style="font-weight: 900"> EXERCISE 9</p>';
@@ -244,9 +264,41 @@ Write a function 'countWords($text)' that:
 Hint: use a function that allows you to split a sentence into words (already seen in class)
 
 */
+$text = 'Hello how are you doing my dear friend. Hope you are doing well';
+function countWords($text)
+{
+	$sepWords = explode(' ', $text);
+	$sum = 0;
+	foreach ($sepWords as $key => $value) {
+		$sum += strlen($value);
+	}
+	echo $sum;
+}
+countWords($text);
+
 
 echo '<hr>';
 echo '<p style="font-weight: 900"> EXERCISE 10 </p>';
+
+$test = 'Hello how are you doing my dear friend. Hope you are doing well';
+function countEachWords($test)
+{
+	$sepWords = explode(' ', $test);
+	$arrayLength = count($sepWords);
+	$new_array = array();
+	foreach ($sepWords as $value) {
+		$newValue = 1;
+		if ($value == $value) {
+			$newValue++;
+			echo $value;
+			echo $newValue . '<br>';
+		} else
+			echo $value;
+	}
+}
+
+
+countEachWords($test);
 
 /*
 -- Exercice 10 :
@@ -262,8 +314,8 @@ Expected result :
             "a" -> 1,
             "random" -> 2
             ....... );
-
  ?>
+
 
 
 
@@ -303,3 +355,71 @@ Expected result :
 
 =======
 >>>>>>> 36103b77d5f8bc8734fa1a20b157b49523414238
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
