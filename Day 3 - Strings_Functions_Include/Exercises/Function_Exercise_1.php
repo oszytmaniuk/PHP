@@ -246,11 +246,10 @@ function reverseArray($array)
 	$arrayLength = count($array);
 	for ($i = $arrayLength - 1; $i >= 0; $i--) {
 		echo $array[$i] . ' ';
+		$array[$i]
 	}
 }
 reverseArray($revArray);
-
-
 
 echo '<hr>';
 echo '<p style="font-weight: 900"> EXERCISE 9</p>';
@@ -348,7 +347,6 @@ Expected result :
 
 
 
-<<<<<<< HEAD
 
 
 
@@ -359,8 +357,15 @@ Expected result :
 
 
 
-=======
->>>>>>> 36103b77d5f8bc8734fa1a20b157b49523414238
+
+
+
+
+
+
+
+
+
 
 
 

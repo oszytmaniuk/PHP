@@ -26,8 +26,21 @@ else
 		- Take one array of integer as argument
 		- Checks if the elements of the arrays are ordered in ascending order.
 
-	
+*/
+echo '<hr>';
+echo '<p style="font-weight: 900"> EXERCISE 2 </p>';
 
+$unorderedArray = array(3, 8, 1, 2, 7, 10, 9, 4, 6, 5);
+function orderArray($array)
+{
+	for ($i = 0; $i < count($array); $i++) {
+		echo $array[$i] . '<br>';
+		
+
+	}
+}
+orderArray($unorderedArray);
+/*
 -- Exercise 2 :
 
 	Write a function 'orderArray' that :
