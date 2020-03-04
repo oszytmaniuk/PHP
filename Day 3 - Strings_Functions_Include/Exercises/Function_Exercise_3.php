@@ -2,25 +2,23 @@
 echo '<hr>';
 echo '<p style="font-weight: 900"> EXERCISE 1 </p>';
 
-$integerArray = array(1, 2, 5, 4, 10, 40, 50);
+$integerArray = array(1, 2, 5, 9, 10, 40, 50);
 function isOrder($array)
 {
 	$array_length = count($array);
 	for ($i = 0; $i < $array_length - 1; $i++) {
 		if ($array[$i] > $array[$i + 1]) {
-			echo 'NOT ASC';
 			return false;
 		}
 	}
-	echo ' TRUE';
 	return true;
 }
 //this will check is the isOrder() is TRUE or FALSE. because we were using a RETURN wich gives us a BOOLEAN.
 //this also can be used in diff functions. And sometimes its better to use this approach as apposed to ECHOing.
 if (isOrder($integerArray))
-	echo ' OK';
+	echo 'the array is ASC';
 else
-	echo 'NOT OK';
+	echo 'the array is NOT ASC';
 
 /*
 -- Exercise 1 : 

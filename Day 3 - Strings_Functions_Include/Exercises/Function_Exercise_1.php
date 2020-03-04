@@ -188,11 +188,17 @@ Example :
 
 function htmlImages($src)
 {
-	return 'Display <img src = ' . $src . '>';
+	return  '<img src=' . $src . '>';
 }
+//echo htmlImages('skate.jpg');
 
-htmlImages('skate.jpg');
+?>
 
+<h3>The img element</h3>
+<?php echo htmlImages('skate.jpg') ?>
+
+
+<?php
 echo '<hr>';
 echo '<p style="font-weight: 900"> EXERCISE 7 </p>';
 
@@ -355,6 +361,41 @@ Expected result :
 
 =======
 >>>>>>> 36103b77d5f8bc8734fa1a20b157b49523414238
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
