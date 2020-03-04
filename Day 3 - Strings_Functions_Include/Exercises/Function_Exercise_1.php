@@ -241,15 +241,16 @@ echo '<p style="font-weight: 900"> EXERCISE 8 </p>';
 */
 
 $revArray = array('Mod', 'Tue', 'Wed', 'Thur', 'Fri');
-function reverseArray($array)
+function reverseArray(&$array)
 {
 	$arrayLength = count($array);
 	for ($i = $arrayLength - 1; $i >= 0; $i--) {
 		echo $array[$i] . ' ';
-		$array[$i]
+		
 	}
 }
 reverseArray($revArray);
+var_dump($revArray);
 
 echo '<hr>';
 echo '<p style="font-weight: 900"> EXERCISE 9</p>';
@@ -320,6 +321,12 @@ Expected result :
             "random" -> 2
             ....... );
  ?>
+
+
+
+
+
+
 
 
 
