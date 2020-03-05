@@ -12,9 +12,9 @@
 
 
 session_start();
-
+$time_seen = 0;
 if (isset($_SESSION['visited'])) {
-    $times = $_SESSION['visited'] += 1;
-    echo 'user isited the page ' . $times . ' times.';
+    $time_seen = $_SESSION['visited'] += 1;
+    echo 'user isited the page ' . $time_seen . ' times.';
 } else
     $_SESSION['visited'] = 0;
