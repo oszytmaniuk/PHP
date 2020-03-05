@@ -9,12 +9,24 @@
     When you click on the button, the counter is reset.
  */
 
-
-
 session_start();
-$time_seen = 0;
-if (isset($_SESSION['visited'])) {
-    $time_seen = $_SESSION['visited'] += 1;
-    echo 'user isited the page ' . $time_seen . ' times.';
+
+$_SESSION['name'] = 'Oleg';
+$_SESSION['email'] = 'oszytmaniuk@gmail.com';
+$_SESSION['seen'] = 1;
+$_SESSION['first_visit'] = time();
+
+var_dump($_SESSION);
+var_dump($_COOKIE);
+
+
+if (isset($_SESSION['seen'])) {
+    $_SESSION['seen'] += 1;
+    echo 'Hi '. $_SESSION['name']. '. You are visiting our page'. '<br>';
+    $ses_date = time();
+    echo 'the first visit of the client was on '.$ses_date.'<br>'; 
+    print_r($_SESSION);
+    
 } else
-    $_SESSION['visited'] = 0;
+    $_SESSION['seen'] = 1;
+    //echo 'visited only once';
