@@ -1,9 +1,6 @@
-<header>
-    <nav>
-        <ul>
-            <li>Home</li>
-            <li>Blog</li>
-            <li>Contact</li>
-        </ul>
-    </nav>
-</header>
+<?php
+echo '<a href="/default.asp">Home</a> -
+<a href="/html/default.asp">HTML Tutorial</a> -
+<a href="/css/default.asp">CSS Tutorial</a> -
+<a href="/js/default.asp">JavaScript Tutorial</a> -
+<a href="default.asp">PHP Tutorial</a>';

@@ -246,6 +246,7 @@ function reverseArray(&$array)
 	$arrayLength = count($array);
 	for ($i = $arrayLength - 1; $i >= 0; $i--) {
 		$array[] = $array[$i];
+		//var_dump($array);
 	}
 	array_splice($array, 0, $arrayLength);
 }
@@ -291,21 +292,18 @@ $test = 'Hello how are you doing my dear friend. Hope you are doing well';
 function countEachWords($test)
 {
 	$sepWords = explode(' ', $test);
-	$arrayLength = count($sepWords);
 	$new_array = array();
-	foreach ($sepWords as $value) {
-		$newValue = 1;
-		if ($value == $value) {
-			$newValue++;
-			echo $value;
-			echo $newValue . '<br>';
-		} else
-			echo $value;
+
+	foreach ($sepWords as $key => $value) {
+		if (isset($new_array[$value]))
+		$new_array[$value] = 1;
+		else
+		$new_array[$value] +=1;
 	}
-}
+	return $new_array;
 
 
-countEachWords($test);
+
 
 /*
 -- Exercice 10 :
@@ -322,6 +320,10 @@ Expected result :
             "random" -> 2
             ....... );
  ?>
+
+
+
+
 
 
 

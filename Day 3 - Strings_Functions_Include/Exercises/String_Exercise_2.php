@@ -12,6 +12,8 @@
 	echo '<hr>';
 	echo '<p style="font-weight: 900"> EXERCISE 1 </p>';
 
+	<form action=""></form>
+
 	/**
 	 EXERCICE 2 :
 
