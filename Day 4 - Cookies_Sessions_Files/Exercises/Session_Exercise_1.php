@@ -12,3 +12,6 @@
         Otherwise, it will display the message 'You have not visited
         the create-session page '
  */
+//Creating a NEW FILE
+fopen('create-session.php', 'a');
+fopen('get-viewed.php', 'a');
