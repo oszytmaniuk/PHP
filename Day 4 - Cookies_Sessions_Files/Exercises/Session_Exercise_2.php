@@ -13,13 +13,13 @@ session_start();
 
 $_SESSION['name'] = 'Oleg';
 $_SESSION['email'] = 'oszytmaniuk@gmail.com';
-$_SESSION['seen'] = 1;
+//$_SESSION['seen'] = true;
 $_SESSION['first_visit'] = time();
 
-var_dump($_SESSION);
-var_dump($_COOKIE);
+//var_dump($_SESSION);
 
 
+$first_date_visit = '';
 if (isset($_SESSION['seen'])) {
     $_SESSION['seen'] += 1;
     echo 'Hi '. $_SESSION['name']. '. You are visiting our page'. '<br>';
@@ -29,4 +29,6 @@ if (isset($_SESSION['seen'])) {
     
 } else
     $_SESSION['seen'] = 1;
-    //echo 'visited only once';
+    echo 'visited only once';
+    $first_date_visit = $_SESSION['first_visit'];
+ echo $first_date_visit;
