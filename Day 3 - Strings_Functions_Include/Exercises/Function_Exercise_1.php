@@ -244,10 +244,10 @@ $revArray = array('Mod', 'Tue', 'Wed', 'Thur', 'Fri');
 function reverseArray(&$array)
 {
 	$arrayLength = count($array);
-	for ($i = $arrayLength - 1; $i >= 0; $i--){
+	for ($i = $arrayLength - 1; $i >= 0; $i--) {
 		$array[] = $array[$i];
 	}
-	array_splice($array,0,$arrayLength);
+	array_splice($array, 0, $arrayLength);
 }
 
 reverseArray($revArray);
@@ -322,6 +322,7 @@ Expected result :
             "random" -> 2
             ....... );
  ?>
+
 
 
 
