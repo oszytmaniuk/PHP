@@ -16,7 +16,7 @@ session_start();
 <body>
     <?php
     //Setting variables:
-    $_SESSION['viewed'] = 'true';
+    $_SESSION['viewed'] = true;
 
     echo 'Variable are set'
     ?>
