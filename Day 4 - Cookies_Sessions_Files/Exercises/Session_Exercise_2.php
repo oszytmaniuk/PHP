@@ -8,3 +8,13 @@
     Step 3: Add a 'Reset' submit (in a form, of course)
     When you click on the button, the counter is reset.
  */
+
+
+
+session_start();
+
+if (isset($_SESSION['visited'])) {
+    $times = $_SESSION['visited'] += 1;
+    echo 'user isited the page ' . $times . ' times.';
+} else
+    $_SESSION['visited'] = 0;
