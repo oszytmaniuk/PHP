@@ -14,7 +14,8 @@ session_start();
 $_SESSION['name'] = 'Oleg';
 $_SESSION['email'] = 'oszytmaniuk@gmail.com';
 //$_SESSION['seen'] = true;
-$_SESSION['first_visit'] = time();
+$_SESSION['time'] = time();
+
 
 //var_dump($_SESSION);
 
@@ -23,12 +24,9 @@ $first_date_visit = '';
 if (isset($_SESSION['seen'])) {
     $_SESSION['seen'] += 1;
     echo 'Hi '. $_SESSION['name']. '. You are visiting our page'. '<br>';
-    $ses_date = time();
-    echo 'the first visit of the client was on '.$ses_date.'<br>'; 
-    print_r($_SESSION);
     
 } else
     $_SESSION['seen'] = 1;
-    echo 'visited only once';
-    $first_date_visit = $_SESSION['first_visit'];
+    echo date('Y m d').'<br>';
  echo $first_date_visit;
+ print_r($_SESSION);
