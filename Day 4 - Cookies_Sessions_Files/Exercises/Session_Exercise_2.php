@@ -19,14 +19,23 @@ $_SESSION['time'] = time();
 
 //var_dump($_SESSION);
 
+if (isset($_POST['submit'])) {
+    session_unset();
+}
 
-$first_date_visit = '';
+
 if (isset($_SESSION['seen'])) {
     $_SESSION['seen'] += 1;
-    echo 'Hi '. $_SESSION['name']. '. You are visiting our page'. '<br>';
-    
-} else
+    echo 'Hi ' . $_SESSION['name'] . '. You are visiting our page' . '<br>';
+    print_r($_SESSION);
+} else {
     $_SESSION['seen'] = 1;
-    echo date('Y m d').'<br>';
- echo $first_date_visit;
- print_r($_SESSION);
+    echo date('Y m d') . '<br>';
+}
+
+?>
+<br>
+<form action="" method='POST'>
+    <br><input type="submit" value="Submit" name='submit'><br>
+
+</form>
