@@ -22,7 +22,3 @@ while ($row = mysqli_fetch_assoc($results)) {
 }
 //Close the connection:
 mysqli_close($conn);
-
-?>
-
-<img src="poster/the_terminal.jpg" alt="">
