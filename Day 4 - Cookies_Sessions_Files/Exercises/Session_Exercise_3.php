@@ -29,16 +29,20 @@ session_start();
 
 //$_SESSION['username'] = $_POST['username'];
 
-
+//check if the fields are filled in:
 if (isset($_POST['submit'])) {
     if (
         !empty($_POST['username']) and !empty($_POST['email'])
         and !empty($_POST['phone']) and !empty($_POST['pwd'])
     ) {
         echo ' Welcome ' . $_POST['username'] .  ' to the website';
+        //if they are filled -> create a file and put the data in.
         $my_file = fopen('user_info.txt', 'w');
+        //this VAR will put all the $_POST data inside.
         $file_contain = $_POST;
         fwrite($my_file, print_r($file_contain, true));
+        
+        //close the file when the date is in there!!!!!
         fclose($my_file);
     } else
         echo ' Dear user please filled in all the fields in the form';

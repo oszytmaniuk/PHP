@@ -16,9 +16,7 @@ $_SESSION['email'] = 'oszytmaniuk@gmail.com';
 //$_SESSION['seen'] = true;
 $_SESSION['time'] = time();
 
-
-//var_dump($_SESSION);
-
+//restart the session using UNSET function when clicking on the Button.
 if (isset($_POST['submit'])) {
     session_unset();
 }
