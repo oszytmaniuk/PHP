@@ -1,0 +1,8 @@
+Array
+(
+    [username] => olegsz
+    [email] => oszytmaniuk@gmail.com
+    [phone] => 1111
+    [pwd] => 22222
+    [submit] => submit
+)
