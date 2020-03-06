@@ -7,7 +7,7 @@ $conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, 'moviedb');
 
 //Retrieve all directors:
 
-$query = "INSERT INTO directors(name, nationality, date_of_birth) VALUES ('Martin Scorsese', 'USA','1942-11-17')";
+$query = "INSERT INTO movies(title, views, director_id, poster, release_date) VALUES ('Casino',120,4,'/poster/casino.jpg','1997-10-2')";
 //Execute a query:
 
 $results = mysqli_query($conn, $query);
