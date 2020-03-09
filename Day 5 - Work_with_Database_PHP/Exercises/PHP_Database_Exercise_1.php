@@ -11,13 +11,17 @@
 	Also display the last three movies (ordered by date of release).
 
 	3. Create a page 'movies.php'.
-	This page will display all the movies (poster first, then above title and release year).
+	This page will display all the movies (poster first, 
+	then above title and release year).
 	
 	4. Create a page 'movie.php'.
-	This page is a descriptive page for each movie. It'll display the poster, the title, 
+	This page is a descriptive page for each movie. 
+	It'll display the poster, the title, 
 	the release year but also the director's name.
-	This page will have to use the GET method to get the id of the movie you want to display.
-	So in your adress bar it'll look like this : 'localhost/movie.php?id=1'
+	This page will have to use the GET method to get the id of the movie
+	 you want to display.
+	So in your adress bar it'll look like this : 
+	'localhost/movie.php?id=1'
 	You have to get the id of the movie to know which movie to display.
 	
 	5. Edit the page 'movies.php'
