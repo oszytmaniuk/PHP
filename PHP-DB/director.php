@@ -61,7 +61,6 @@ ORDER BY views DESC 3';
 do {
     echo $row['title'] . '<br>';
     echo  'Views : ' . $row['views'] . '<br><hr>';
-    
 } while ($row = mysqli_fetch_assoc($result));
 
 //SQL query to retieve a SUM of ALL the views for the picked director:
@@ -70,4 +69,15 @@ WHERE director_id=' . $_GET['id'];
 
 $viewsResult = mysqli_query($conn, $allViews);
 $rowViews = mysqli_fetch_assoc($viewsResult);
-echo '<p><strong>Total Movie Views is: '.$rowViews['SUM(views)'].'</strong></p>';
+echo '<p><strong>Total Movie Views is: ' . $rowViews['SUM(views)'] . '</strong></p>';
+
+//extracting three most VIEWED movies:
+$mostViewed = 'SELECT * FROM movies WHERE director_id=' . $_GET['id'] . ' ORDER BY views DESC LIMIT 3';
+
+$threeMovie = mysqli_query($conn, $mostViewed);
+$rowThreeMovie = mysqli_fetch_assoc($threeMovie);
+
+
+var_dump($rowThreeMovie);
+
+//echo '<p><em> Three most viewd movies are: ' .  . '</em></p>';
