@@ -1,7 +1,7 @@
 <?php
 
 include_once 'database.php';
-$enterName = $enterPas = $logInCorrect = $logNotCorrect = "";
+$userExistText=$enterName = $enterPas = $logInCorrect = $logNotCorrect = "";
 
 if (isset($_POST['login'])) {
     $enterName = $_POST['enterName'];
@@ -10,10 +10,25 @@ if (isset($_POST['login'])) {
     $enterPas = $_POST['enterPas'];
     $notEmptyPas = strlen($enterPas) >= 6;
     //Selecting a user as per his/her data in the username field.
-    $sqlSelectUser = 'SELECT*FROM users WHERE username=' . $notEmptyName;
-    $results = mysqli_query($conn, $sqlSelectUser);
-    $rows = mysqli_fetch_assoc($results);
-    var_dump($rows);
+    $sqlSelectUser = mysqli_query($conn, "SELECT * FROM users WHERE username='$enterName'");
+    //checking if the user exist in the DB by displaying nr of ROW:
+    // - if > 0 it means => user is in DB; otherwise NOT.
+    $num_rows = mysqli_num_rows($sqlSelectUser);
+    echo "$num_rows Rows\n";
+    //to get a whole dataset about this user
+    $row = mysqli_fetch_assoc($sqlSelectUser);
+    //to get an array
+    var_dump($row);
+
+    //Logic for existing user by checking the Password:
+    if ($num_rows>0){
+        
+
+
+    
+    //$userExistText = 'Welcome '.$enterName.'to the Website';
+    
+   
 
 
     /*while ($rows = mysqli_fetch_assoc($results)) {
@@ -65,6 +80,9 @@ if (isset($_POST['login'])) {
         <input type="submit" name="login" class="btn btn-primary" value="Log IN">
     </form>
     <!--<p>
+        <stromg><?=$userExistText;?></stromg>
+    </p>
+    <p>
         <strong><?php echo $logInCorrect; ?></strong>
     </p>
     <p>
