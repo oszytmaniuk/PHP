@@ -1,6 +1,6 @@
 <?php
 
-//IF 
+/*//IF 
 $number1 = "50";
 
 if ($number1 < 60) {
@@ -43,11 +43,13 @@ if ($var1 == true)
 
             echo '<hr>';
 
-//4. Switch
 
+
+//4. Switch
+*/
 $movie = 'Jur Park';
-switch ($$movie) {
-    case 'Star Wars':
+switch ($movie) {
+    case 'Jur Park':
         echo 'YOu like Sci Fi';
         break;
 

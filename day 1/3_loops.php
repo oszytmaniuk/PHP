@@ -9,6 +9,8 @@ for ($i = 0; $i < 10; $i++) {
 $fruits = array('apple', 'mango', 'kiwi');
 //to give us a number of the elements within array
 $size = count($fruits);
+echo '<hr>';
+echo $size;
 
 for ($i = 0; $i < $size; $i++) {
     echo $fruits[$i] . '<br>';
@@ -24,12 +26,12 @@ while ($number >= 1) {
 echo '<hr>';
 
 //3. Do ... While
-$number = 10;
+$number = 13;
 
 do {
 
-    echo "oleg";
-} while ($number < 9);
+    echo "Numbers from 10 to 9 <br>";
+} while ($number < 2);
 
 
 //4. ForEach Loop ONLY for ARRAYs

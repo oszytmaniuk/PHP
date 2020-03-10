@@ -15,17 +15,20 @@
   Keep the firstname in the input
 */ 
 
-$firstName = '';
+$firstname = '';
+echo "oleg is good guy";
 
-if(isset($_POST['firstName'])) {
-  $firstName = $_POST['firstName'];
+if(isset($_POST['firstname'])) {
+  $firstname = $_POST['firstname'];
+  echo $firstname;
+
 }
 
   ?>
   <form action="data.php" method="POST">
-    <input type="text" name="firstName" placeholder="Your first name" value="<?php echo $firstName; ?>">
-    <input type="text" name="email" placeholder="Your email">
-    <input type="password" name="password" placeholder="Your password">
+    <input type="text" name="firstname" placeholder="Your first name" value="<?php echo $firstName; ?>">
+    <!--<input type="text" name="email" placeholder="Your email">
+    <input type="password" name="password" placeholder="Your password">-->
     <input type="submit" value="Send">
   </form>
 </body>

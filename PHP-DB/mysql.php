@@ -2,7 +2,7 @@
 //include fubnction to connect with an external file/path
 include_once 'database.php';
 //Connect to DB
-$conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, 'moviedb');
+$conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, 'moviesdb');
 echo '<p> Connection successfull. </p><hr>';
 
 //Retrieve all directors:

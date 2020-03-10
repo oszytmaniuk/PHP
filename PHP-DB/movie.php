@@ -4,7 +4,7 @@ echo '<p> This page is displaying ALL movies amd the poster </p>';
 
 include_once 'database.php';
 //Connect to DB
-$conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, 'moviedb');
+$conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, 'moviesdb');
 
 //Retrieve last 3 movies based on the dates:
 
