@@ -47,7 +47,7 @@ $years = date('Y') - substr($row['date_of_birth'], 0, 4);
 
 
 
-echo '<img src="' . $row['picture'] . '"><br>';
+echo '<a href ="movie-per-dir.php?id=' . $_GET['id'] . '"' . '><img src="' . $row['picture'] . '"></a><br>';
 echo $row['name'] . '<br>';
 echo $row['nationality'] . '<br>';
 echo 'Age is: ' . $years . '<br><hr>';
@@ -75,9 +75,12 @@ echo '<p><strong>Total Movie Views is: ' . $rowViews['SUM(views)'] . '</strong><
 $mostViewed = 'SELECT * FROM movies WHERE director_id=' . $_GET['id'] . ' ORDER BY views DESC LIMIT 3';
 
 $threeMovie = mysqli_query($conn, $mostViewed);
-$rowThreeMovie = mysqli_fetch_assoc($threeMovie);
+//var_dump($rowThreeMovie);
 
+while ($rowThreeMovie = mysqli_fetch_assoc($threeMovie)) {
+    echo ' The three most viewed movies are: ' . $rowThreeMovie['title'] . ' and views :' . $rowThreeMovie['views'] . '<br>';
+}
 
-var_dump($rowThreeMovie);
+mysqli_close($conn);
 
 //echo '<p><em> Three most viewd movies are: ' .  . '</em></p>';

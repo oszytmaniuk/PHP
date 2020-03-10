@@ -12,16 +12,13 @@ $query = 'SELECT movies.id, movies.poster, movies.title, movies.release_date, di
 FROM movies
 INNER JOIN directors
 ON movies.director_id=directors.id
-WHERE movies.id =' . $_GET['id'];
+WHERE directors.id =' . $_GET['id'];
 
 //Execute a query:
 $results = mysqli_query($conn, $query);
 //Retrieve results as an associative array: It will give a current result.
 //We need to repeat - LOOP to get all the results:
-$row = mysqli_fetch_assoc($results);
-var_dump($row);
-
-if (isset($_GET['id'])) {
+while ($row = mysqli_fetch_assoc($results)) {
     //var_dump($row);
     echo '<img src="' . $row['poster'] . '"' . ' > ' . '<br>';
     echo 'Title :' . $row['title'] . '<br>';
