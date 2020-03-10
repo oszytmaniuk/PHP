@@ -1,9 +1,37 @@
 <?php
 
-/*
-$logUsername = $logPassword = "";
+include_once 'database.php';
+$enterName = $enterPas = $logInCorrect = $logNotCorrect = "";
 
-*/
+if (isset($_POST['login'])) {
+    $enterName = $_POST['enterName'];
+    $notEmptyName = strlen($enterName) > 0;
+
+    $enterPas = $_POST['enterPas'];
+    $notEmptyPas = strlen($enterPas) >= 6;
+    //Selecting a user as per his/her data in the username field.
+    $sqlSelectUser = 'SELECT*FROM users WHERE username=' . $notEmptyName;
+    $results = mysqli_query($conn, $sqlSelectUser);
+    $rows = mysqli_fetch_assoc($results);
+    var_dump($rows);
+
+
+    /*while ($rows = mysqli_fetch_assoc($results)) {
+        var_dump($rows['username']);
+        if ($notEmptyName === $rows['username']) {
+            echo 'Username ' . $notEmptyName . 'exist in the DB';
+            if ($notEmptyPas === $rows['password']) {
+                echo 'User with a username ' . $notEmptyName . 'is logged in';
+            }
+        } else
+            echo 'Please type your username';
+        /*if ($notEmptyName === $row['username'] and $notEmptyPas === $rows['password']) {
+            var_dump($rows);
+            $logInCorrect = 'User ' . $notEmptyName . ' is loged in!';
+        } else
+            $logNotCorrect = 'Please check your email or password.';
+    }*/
+}
 
 
 ?>
@@ -24,19 +52,24 @@ $logUsername = $logPassword = "";
 </head>
 
 <body class="w-25 m-auto">
-    <form>
+    <form method='post'>
         <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label for="exampleInputUserName">User Name</label>
+            <input type="text" name="enterName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <input type="password" name="enterPas" class="form-control" id="exampleInputPassword1">
         </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <input type="submit" name="login" class="btn btn-primary" value="Log IN">
     </form>
+    <!--<p>
+        <strong><?php echo $logInCorrect; ?></strong>
+    </p>
+    <p>
+        <strong><?php echo $logNotCorrect; ?></strong>
+    </p>-->
 </body>
 
 </html>
