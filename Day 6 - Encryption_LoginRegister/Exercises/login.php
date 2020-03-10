@@ -14,16 +14,26 @@ if (isset($_POST['login'])) {
     //checking if the user exist in the DB by displaying nr of ROW:
     // - if > 0 it means => user is in DB; otherwise NOT.
     $num_rows = mysqli_num_rows($sqlSelectUser);
-    echo "$num_rows Rows\n";
+    //echo "$num_rows Rows\n";
     //to get a whole dataset about this user
     $row = mysqli_fetch_assoc($sqlSelectUser);
     //to get an array
     var_dump($row);
-
     //Logic for existing user by checking the Password:
-    if ($num_rows>0){
-        
+        if ($num_rows>0){
+            echo "<p><strong>Your username is correct</strong></p>";
+            
+            if(password_verify($enterPas, $row['password'])){
+                echo "<p><strong>Your password is correct</strong></p>";
+            } else{
+                echo 'Password is incorrect';
+            }
+        }else{
+        echo "<p><strong>Your username is NOT correct</strong></p>";
+    }
+    
 
+}
 
     
     //$userExistText = 'Welcome '.$enterName.'to the Website';
@@ -46,7 +56,7 @@ if (isset($_POST['login'])) {
         } else
             $logNotCorrect = 'Please check your email or password.';
     }*/
-}
+
 
 
 ?>
