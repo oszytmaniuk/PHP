@@ -16,17 +16,15 @@ if (isset($_POST['login'])) {
     $num_rows = mysqli_num_rows($sqlSelectUser);
     //echo "$num_rows Rows\n";
     //to get a whole dataset about this user
-    $row = mysqli_fetch_assoc($sqlSelectUser);
-    //to get an array
-    var_dump($row);
     //Logic for existing user by checking the Password:
-        if ($num_rows>0){
-            echo "<p><strong>Your username is correct</strong></p>";
-            
-            if(password_verify($enterPas, $row['password'])){
+        if ($num_rows===1){
+            $row = mysqli_fetch_assoc($sqlSelectUser);
+            $passHash = $row['password'];
+            if(password_verify($enterPas, $passHash)){
                 echo "<p><strong>Your password is correct</strong></p>";
             } else{
-                echo 'Password is incorrect';
+                echo '<p><strong>Your password is NOT correct</strong></p>';
+                
             }
         }else{
         echo "<p><strong>Your username is NOT correct</strong></p>";
