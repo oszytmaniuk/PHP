@@ -25,19 +25,25 @@
 	You have to get the id of the movie to know which movie to display.
 	
 	5. Edit the page 'movies.php'
-	Make the title of each movie clickable. It'll redirect to the related descriptive movie page.
+	Make the title of each movie clickable. It'll redirect to the 
+	related descriptive movie page.
 
 	6. You have to add an attribut to the 'directors' table.
-	Call this attribut 'picture', it'll save the path of the picture (image) file for each director.
+	Call this attribut 'picture', it'll save the path of the picture (image) file 
+	for each director.
 
 	7. Create a page 'directors.php'
-	This page will display all the directors (Picture, then First name & last name).
+	This page will display all the directors
+	(Picture, then First name & last name).
 	
 	8. Create a page 'director.php'.
-	This page is a descriptive page for each director. It'll display the picture, first name, 
+	This page is a descriptive page for each director. 
+	It'll display the picture, first name, 
 	last name of the director.
 	It'll also display ALL the movies from this director.
-	This page will have to use the GET method to get the id of the director you want to display.
-	So in your adress bar it'll look like this : 'localhost/director.php?id=1'
+	This page will have to use the GET method to get the id of 
+	the director you want to display.
+	So in your adress bar it'll look like this : 
+	'localhost/director.php?id=1'
 
 */
