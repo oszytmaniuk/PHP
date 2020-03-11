@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include_once 'database.php';
 $userExistText = $enterName = $enterPas = $logInCorrect = $logNotCorrect = "";
 
@@ -25,6 +25,9 @@ if (isset($_POST['login'])) {
         echo $enterPas;
         if (password_verify($enterPas, $passHash)) {
             echo ' Pass is ok';
+            $_SESSION['username'] = $enterName;
+            header("location:edit-myaccount.php"); 
+            
         } else {
             echo "<p><strong>Your username is NOT correct</strong></p>";
         }

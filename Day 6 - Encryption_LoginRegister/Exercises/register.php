@@ -4,14 +4,6 @@ include_once 'database.php';
 //Defining variables
 $username = $message = $email = $password = "";
 
-//olegsz
-//123456
-
-//user12
-//user12
-
-//user11
-//user11
 
 if (isset($_POST['submit'])) {
     //check the username
