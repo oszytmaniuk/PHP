@@ -1,61 +1,43 @@
 <?php
 
 include_once 'database.php';
-$userExistText=$enterName = $enterPas = $logInCorrect = $logNotCorrect = "";
+$userExistText = $enterName = $enterPas = $logInCorrect = $logNotCorrect = "";
 
 if (isset($_POST['login'])) {
     $enterName = $_POST['enterName'];
-    $notEmptyName = strlen($enterName) > 0;
-
     $enterPas = $_POST['enterPas'];
-    $notEmptyPas = strlen($enterPas) >= 6;
     //Selecting a user as per his/her data in the username field.
     $sqlSelectUser = mysqli_query($conn, "SELECT * FROM users WHERE username='$enterName'");
     //checking if the user exist in the DB by displaying nr of ROW:
     // - if > 0 it means => user is in DB; otherwise NOT.
     $num_rows = mysqli_num_rows($sqlSelectUser);
+    var_dump($num_rows);
+
     //echo "$num_rows Rows\n";
     //to get a whole dataset about this user
     //Logic for existing user by checking the Password:
-        if ($num_rows===1){
-            $row = mysqli_fetch_assoc($sqlSelectUser);
-            $passHash = $row['password'];
-            if(password_verify($enterPas, $passHash)){
-                echo "<p><strong>Your password is correct</strong></p>";
-            } else{
-                echo '<p><strong>Your password is NOT correct</strong></p>';
-                
-            }
-        }else{
-        echo "<p><strong>Your username is NOT correct</strong></p>";
+    if ($num_rows === 1) {
+        $row = mysqli_fetch_assoc($sqlSelectUser);
+        var_dump($row);
+        $passHash = $row['password'];
+        echo $passHash . '<br>';
+        echo $enterName . '<br>';
+        echo $enterPas;
+        if (password_verify($enterPas, $passHash)) {
+            echo ' Pass is ok';
+        } else {
+            echo "<p><strong>Your username is NOT correct</strong></p>";
+        }
     }
-    
-
 }
 
-    
-    //$userExistText = 'Welcome '.$enterName.'to the Website';
-    
-   
+/*if (password_verify($enterPas, $passHash)) {
+    echo "<p><strong>Your password is correct</strong></p>";
+} else {
+    echo '<p><strong>Your password is NOT correct</strong></p>';
+}
 
-
-    /*while ($rows = mysqli_fetch_assoc($results)) {
-        var_dump($rows['username']);
-        if ($notEmptyName === $rows['username']) {
-            echo 'Username ' . $notEmptyName . 'exist in the DB';
-            if ($notEmptyPas === $rows['password']) {
-                echo 'User with a username ' . $notEmptyName . 'is logged in';
-            }
-        } else
-            echo 'Please type your username';
-        /*if ($notEmptyName === $row['username'] and $notEmptyPas === $rows['password']) {
-            var_dump($rows);
-            $logInCorrect = 'User ' . $notEmptyName . ' is loged in!';
-        } else
-            $logNotCorrect = 'Please check your email or password.';
-    }*/
-
-
+*/
 
 ?>
 
@@ -75,7 +57,7 @@ if (isset($_POST['login'])) {
 </head>
 
 <body class="w-25 m-auto">
-    <form method='post'>
+    <form method='post' action=''>
         <div class="form-group">
             <label for="exampleInputUserName">User Name</label>
             <input type="text" name="enterName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -88,7 +70,7 @@ if (isset($_POST['login'])) {
         <input type="submit" name="login" class="btn btn-primary" value="Log IN">
     </form>
     <!--<p>
-        <stromg><?=$userExistText;?></stromg>
+        <stromg><?= $userExistText; ?></stromg>
     </p>
     <p>
         <strong><?php echo $logInCorrect; ?></strong>

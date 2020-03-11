@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) {
     $okPass = strlen($password) >= 6;
     // cgeck if all the parameters are correct
     if ($okUserName and $okEmail and $okPass) {
-        $hash = password_hash($okPass, PASSWORD_DEFAULT);
+        $hash = password_hash($password, PASSWORD_DEFAULT);
         echo 'User :' . $username . ' with email: ' . $email . ' is logged in <br>';
         echo $hash;
         $query = "INSERT INTO users(username, email, password)
