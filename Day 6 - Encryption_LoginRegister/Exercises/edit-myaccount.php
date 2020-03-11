@@ -1,5 +1,6 @@
 <?php
 session_start();
+var_dump($_SESSION['username']);
 //including DB with connection
 include_once 'database.php';
 //Defining variables
