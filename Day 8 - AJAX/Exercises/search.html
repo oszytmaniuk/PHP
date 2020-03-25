@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="POST">
+        <label for="">Search</label>
+        <input type="search" name="search" id="search">
+    </form>
+    <div id="output">
+
+    </div>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+           $("#search").keyup(function(){
+              let query = $(this).val();
+              if (query != "") {
+                $.ajax({
+                  url: 'search-movie.php',
+                  method: 'POST',
+                  data: {query:query},
+                  success: function(data){
+     
+                    $('#output').html(data);
+                    $('#output').css('display', 'block');
+     
+                    $("#search").focusout(function(){
+                        $('#output').css('display', 'none');
+                    });
+                    $("#search").focusin(function(){
+                        $('#output').css('display', 'block');
+                    });
+                  }
+                });
+              } else {
+              $('#output').css('display', 'none');
+            }
+          });
+        });
+      </script>
+</body>
+</html>
