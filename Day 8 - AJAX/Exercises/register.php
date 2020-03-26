@@ -1,12 +1,19 @@
 <?php
 require_once 'db.php';
+
+$conn = @mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT);
+
+if(!$conn)
+   die("error to connect");
+else {
+    echo '<p> Connected Successfully </p><hr>';
+}
 //defining variables:
 $username = $email = $password = "";
 
 if(isset($_POST['submit'])){
     //check the users:
     $username = $_POST['username'];
-    
 }
 ?>
 

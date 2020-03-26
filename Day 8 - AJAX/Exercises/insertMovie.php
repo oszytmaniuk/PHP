@@ -1,6 +1,7 @@
 <?php
 require_once 'db.php';
 
+
 $errors = array();
 
 if (!empty($_POST)) {
