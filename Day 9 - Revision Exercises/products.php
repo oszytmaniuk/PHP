@@ -21,9 +21,8 @@ while ($row = mysqli_fetch_assoc($results)) {
     echo 'Name :' . $row['name'] . '<br>';
     echo 'Category :' . $row['category'] . '<br>';
     echo 'Price :' . $row['price'] . '<br>';
-    echo '<form method="post">
-            <input type="submit" name="submit" value="Add" onclick="show_cart();">
-        </form>';
+    // Create a button whit value = $row['id']
+    echo '<button value="' . $row['id'] . '" class="productBtn">Add to cart</button>';
     echo '<hr>';
 }
 
