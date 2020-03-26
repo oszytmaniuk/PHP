@@ -1,0 +1,6 @@
+  #item_div 
+{
+	float:left;
+    margin-left:60px;
+    display: flex;
+}

@@ -15,15 +15,22 @@ $query = "SELECT * FROM product";
 
 $results = mysqli_query($conn, $query);
 
+echo '<div id="item-div">';
 while ($row = mysqli_fetch_assoc($results)) {
     //var_dump($row);
-    echo 'The product\'s picture :' . '<img src="'. $row['picture'] .'"'.'><br>';
-    echo 'Name :' . $row['name'] . '<br>';
-    echo 'Category :' . $row['category'] . '<br>';
-    echo 'Price :' . $row['price'] . '<br>';
+    echo '<div class="card" style="width: 18rem;">';
+    echo '<img src="'. $row['picture'] .'" class="card-img-top" alt="...">';
+    echo '<div class="card-body">';
+    echo '<h5 class="card-title">'.$row["name"].'</h5>';
+    echo '<p class="card-text">'.$row["category"].'</p>';
+    echo '<h4 class="card-title">'.$row["price"].' EUR</h4>';
+    echo '</div>';
+    echo '<button value="' . $row['id'] . '"type="button" class="btn btn-secondary productBtn">Add to cart</button>';
+    echo '</div>';
+    
     // Create a button whit value = $row['id']
-    echo '<button value="' . $row['id'] . '" class="productBtn">Add to cart</button>';
-    echo '<hr>';
+    echo '<br>';
 }
+echo '</div>';
 
 ?>
