@@ -15,7 +15,7 @@
 <body>
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item active" aria-current="page">Cart (<span id="results"></span>)</li>
+      <li class="breadcrumb-item active" aria-current="page"><span id="results"></span></li>
     </ol>
   </nav>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -26,7 +26,9 @@
   include_once 'products.php';
   ?>
   <script>
-    $(function() {
+    // For the whole document --> look at it and add an event 'Click'
+    // for each elemento in the DOM which contains class ".productBtn"
+     $(function() {
       $('.productBtn').click(function (e) {
         
         $.ajax({
@@ -36,7 +38,7 @@
             productId: $(this).val() 
           },
           success: function(result) {
-            console.log("Number of products in my cart : " + result);
+            console.log(result);
             $('#results').html(result);
           }
         });

@@ -18,7 +18,7 @@
     
     } else {
       //create
-      echo " do something";
+    
     }
   }
   
@@ -43,7 +43,7 @@ if(isset($_SESSION['product'])) {
     
     } else {
       //create
-      echo " do something";
+      
     }
 
   /*
