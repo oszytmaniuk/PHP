@@ -6,5 +6,5 @@ define('DB_PASSWORD', '');
 define('DB_NAME', 'moviedb');
 define('DB_PORT', 3308);
 
-$conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT);
+//$conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT);
 ?>

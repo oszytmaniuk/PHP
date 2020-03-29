@@ -30,7 +30,7 @@
     // for each elemento in the DOM which contains class ".productBtn"
      $(function() {
       $('.productBtn').click(function (e) {
-        
+        e.preventDefault();
         $.ajax({
           url: 'addToCart.php',
           type: 'post',
