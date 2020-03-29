@@ -24,7 +24,7 @@ if ($num_rows != 1) {
 else {
     //gettign a row as a associative array to check by the colum name.
     $row = mysqli_fetch_assoc($result);
-    var_dump($row);
+    //var_dump($row);
     $passHashed = $row['password'];
     if (password_verify($enterPas, $passHashed)) {
         $_SESSION['username'] = $enterUsername;
