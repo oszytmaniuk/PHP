@@ -12,34 +12,34 @@
 </head>
 
 <body class="w-25 m-auto">
-    <form method='post' action='' id="registrationForm">
-        <div class="form-group">
-            <label for="exampleInputUsername1">Username</label>
-            <input type="text" name="username" class="form-control" id="inputUsername">
+  <form method='post' action='' id="registrationForm">
+    <div class="form-group">
+      <label for="exampleInputUsername1">Username</label>
+      <input type="text" name="username" class="form-control" id="inputUsername">
 
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" name="email" class="form-control" id="inputEmail">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" name="email" class="form-control" id="inputEmail">
 
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" name="password" class="form-control" id="inputPassword">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Confirm Password</label>
-            <input type="password" name="cnfPass" class="form-control" id="inputCnfPass">
-        </div>
-        <input class="btn btn-primary" type="submit" value="Submit" name="submit" id="submit">
-    </form>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" name="password" class="form-control" id="inputPassword">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Confirm Password</label>
+      <input type="password" name="cnfPass" class="form-control" id="inputCnfPass">
+    </div>
+    <input class="btn btn-primary" type="submit" value="Submit" name="submit" id="submit">
+  </form>
 
-    <!-- result of the AJAX response will be rendered inside below div -->
-    <div id="result"></div>
+  <!-- result of the AJAX response will be rendered inside below div -->
+  <div id="result"></div>
 
-    <!-- AJAX call -->
-    <script>
-    $(function(){
+  <!-- AJAX call -->
+  <script>
+     $(function(){
       $('#submit').click(function(e){
         e.preventDefault();
         // using serialize function of jQuery to get all values of form
@@ -63,6 +63,7 @@
       })
     })   
     </script>
+  </script>
 </body>
 
 </html>
