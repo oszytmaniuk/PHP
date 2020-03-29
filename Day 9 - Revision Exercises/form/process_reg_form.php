@@ -15,49 +15,37 @@ else {
 //check on username:
 $username = trim($_POST['username']);
 $okUserName = strlen($username) >= 3;
-echo $username;
 
 //check the email:
 $email = trim($_POST['email']);
 $okEmail = filter_var($email, FILTER_VALIDATE_EMAIL);
-echo $email;
+
 //check password:
 $password = trim($_POST['password']);
 $okPass = strlen($password) >= 6;
-echo $password;
 $cnfPass = trim($_POST['cnfPass']);
-echo $cnfPass;
 
 if ($okUserName && $okEmail && $okPass && ($password===$cnfPass)) {
-
-    $hash = password_hash($password, PASSWORD_DEFAULT);
-    $query = "INSERT INTO users(username, email, password)
-    VALUES ('$username', '$email', '$hash')";
-    $results = mysqli_query($conn, $query);
-    //to check if the result is TRUE ao FALSE:
-    var_dump($results);
-    echo "User Registration Successfull!!!";
+    //SQL request to check if the email is already exists:
+    $sql = "SELECT email FROM users WHERE email='$email'";
+    $resultset = mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
+    $row = mysqli_fetch_assoc($resultset);
+    if(!$row['email']){
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+        $query = "INSERT INTO users(username, email, password)
+        VALUES ('$username', '$email', '$hash')";
+        $results = mysqli_query($conn, $query);
+        //to check if the result is TRUE ao FALSE:
+        //var_dump($results);
+        echo "User Registration Successfull!!!";
+        //redirecting to a HOME page??????
+        header('location: login.php');
+    }
+    else {
+        echo 'this '.$row['email']. 'is already exist. Please enter different one!';
+    }
 } else
     echo "Invalid input. Please enter all the input fields in form";
 
 //close DB connection:
 mysqli_close($conn);
-
-/*if (isset($_POST['submit'])) {
-    $user_name = $_POST['username'];
-    $user_email = $_POST['email'];
-    $user_password = $_POST['password'];
-    $sql = "SELECT email FROM users WHERE email='$email'";
-    $resultset = mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn));
-    $row = mysqli_fetch_assoc($resultset);
-    if (!$row['email']) {
-        $hash = password_hash($user_password, PASSWORD_DEFAULT);
-        $query = "INSERT INTO users(username, email, password)
-        VALUES ('$user_name', '$user_email', '$hash')";
-        mysqli_query($conn, $sql) or die("database error:" . mysqli_error($conn) . "qqq" . $sql);
-        echo "registered";
-    } else {
-        echo "1";
-    }
-}
-*/
