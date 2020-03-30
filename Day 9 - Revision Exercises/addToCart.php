@@ -1,29 +1,29 @@
 <?php
-  session_start();
-  require_once 'db.php';
-  include 'products.php';
-  // Get id of the product
- 
+session_start();
+//require_once 'db.php';
 
-  // add rresult to the session array
+// Get id of the product
 
+// add rresult to the session array
+
+if (isset($_SESSION['totalNb'])) {
+  $_SESSION['totalNb'] += 1;
   
+  
+} else
+  $_SESSION['totalNb'] = 1;
 
-  if(isset($_SESSION['totalNb'])){
-      $_SESSION['totalNb'] += 1;
-    }
-    else
-    $_SESSION['totalNb'] = 1;  
-    
-    
-    echo $_SESSION['totalNb'];
+//query DB -> select all from the products where id='$id'
+$id = $_POST['productId'];
+echo $_SESSION['totalNb'];
+
+
+
+
 
 //array of products:
- $item_array = array(
-   'item_id' => $row['id'],
-   'item_cat' =>$row['category'],
-   'item_price' =>$row['price']  
- );
-
-    
-
+// $item_array = array(
+//   'item_id' => $row['id'],
+//   'item_cat' => $row['category'],
+//   'item_price' => $row['price']
+// );

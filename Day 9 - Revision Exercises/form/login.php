@@ -17,6 +17,7 @@
         <div class="form-group">
             <label for="exampleInputUsername1">Username</label>
             <input type="text" name="username" class="form-control" id="inputUsername">
+            <div id="userCheck"></div>
 
         </div>
         <div class="form-group">
