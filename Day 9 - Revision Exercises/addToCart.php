@@ -1,11 +1,7 @@
 <?php
 session_start();
-//require_once 'db.php';
 
-// Get id of the product
-
-// add rresult to the session array
-
+//number of products by clicking the button:
 if (isset($_SESSION['totalNb'])) {
   $_SESSION['totalNb'] += 1;
   
@@ -13,17 +9,21 @@ if (isset($_SESSION['totalNb'])) {
 } else
   $_SESSION['totalNb'] = 1;
 
+  echo $_SESSION['totalNb'];
 //query DB -> select all from the products where id='$id'
 $id = $_POST['productId'];
-echo $_SESSION['totalNb'];
+
+//connecting to the DB to get the data based on product's id:
+require_once 'db.php';
+$conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT);
+$queryById = "SELECT * FROM product WHERE id=$id";
+$results = mysqli_query($conn, $queryById );
+$row = mysqli_fetch_assoc($results);
+var_dump($row);
 
 
 
 
 
-//array of products:
-// $item_array = array(
-//   'item_id' => $row['id'],
-//   'item_cat' => $row['category'],
-//   'item_price' => $row['price']
-// );
+
+
