@@ -1,3 +1,7 @@
+<?php
+session_start();
+session_unset();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,19 +16,10 @@
 
 <body>
   <!-- nav bar -->
- <?php
+  <?php
  include_once 'navbar.php';
  ?>
-  <!-- search box -->
-  <br>
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" id="search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
-  <!-- here to place an output from the AJAX call when searching for a movie -->
-  <div id="output">
-
-  </div>
+ 
 
   <?php
   require_once 'database.php';
@@ -36,17 +31,10 @@
   else {
     //echo '<p> Connected Successfully </p><hr>';
   }
-  //query unique movie categories:
-  $queryMovieCat = "SELECT category, Count(*) AS total FROM movies GROUP BY category";
-  $resultAllCat = mysqli_query($conn, $queryMovieCat);
-  echo '<p><strong>Category</strong><p><br>';
-  while ($rowCat = mysqli_fetch_assoc($resultAllCat)) {
-    echo '<p>' . $rowCat['category'] . ' (' . $rowCat['total'] . ')</p>';
-  }
-
-  $queryMovieDate = "SELECT * FROM movies ORDER BY release_date DESC LIMIT 3 ";
+  
+  $queryMovieDate = "SELECT * FROM movies ORDER BY id DESC LIMIT 100 ";
   $resultByDate = mysqli_query($conn, $queryMovieDate);
-  echo '<h3> Three most recent movies by release date! </h3><br>';
+  echo '<h3> Catalog of the movies! </h3><br>';
   echo '<div class="container">';
   echo '<div class="row">';
   while ($rowDate = mysqli_fetch_assoc($resultByDate)) {
@@ -55,7 +43,8 @@
     echo '<div class="card-body">';
     echo '<h5 class="card-title">' . $rowDate['title'] . '</h5>';
     echo '<p class="card-text">' . $rowDate['category'] . '</p>';
-    echo '<p class="card-text">' . $rowDate['release_date'] . '</p>';
+    echo '<p class="card-text">' . $rowDate['id'] . '</p>';
+    echo '<button value="'.$rowDate['id'].'"type="button" class="btn btn-outline-secondary" name="edit">Edit</button><hr>';
     echo '</div>';
     echo '</div>';
   }
@@ -66,43 +55,35 @@
   //closing the connection:
   mysqli_close($conn);
   ?>
-
+ <h3 id="result"></h3>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-  <!-- script to search a movie while typing: -->
   <script>
-    $(document).ready(function() {
-      $("#search").keyup(function() {
-        let query = $(this).val();
-        if (query != "") {
-          $.ajax({
-            url: 'search-movie.php',
-            method: 'POST',
-            data: {
-              query: query
-            },
-            success: function(data) {
+    // For the whole document --> look at it and add an event 'Click'
+    // for each elemento in the DOM which contains class ".productBtn"
+    $(function() {
+      $('.btn').click(function(e) {
+        e.preventDefault();
+        let filmId = $(this).val();
+        $.ajax({
+          url: 'edit-movie-logic.php',
+          type: 'get',
+          data: {
+            filmId: filmId
+          },
+          success: function(result) {
+            $('#result').html(result);
+            $(location).attr('href', 'edit-movie.php?id='+result);
+          },
+        });
+      })
 
-              $('#output').html(data);
-              $('#output').css('display', 'block');
-
-              $("#search").focusout(function() {
-                $('#output').css('display', 'none');
-              });
-              $("#search").focusin(function() {
-                $('#output').css('display', 'block');
-              });
-            }
-          });
-        } else {
-          $('#output').css('display', 'none');
-        }
-      });
     });
   </script>
+  
 </body>
 
 </html>
