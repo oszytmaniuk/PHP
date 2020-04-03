@@ -25,6 +25,14 @@ $newCoffee = new CoffeeCup('Mokka',80, 480);
 //echo $newCoffee->reHeat(78);
 //echo $newCoffee->coolDown(85);
 //echo $newCoffee->sip(479);
-// $newCoffee->sip(475);
+//$newCoffee->sip(5);
 // var_dump($newCoffee);
+
+$sixCoffee = new CoffeeCup("Malongo", 65, 20);
+while ($sixCoffee->getQuantity() > 0){
+    $quantityToSip = rand(1,6);
+    echo $sixCoffee->sip($quantityToSip).'<br>';
+    echo $sixCoffee->coolDown(2).'<br>';
+}
+var_dump($sixCoffee);
 

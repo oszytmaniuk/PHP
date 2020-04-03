@@ -14,7 +14,7 @@ class CoffeeCup
     {
       $remain = $this->quantity-$drink;
       if($remain > 0){
-        echo 'Remain '.$remain.'cl of coffee';
+        echo 'You sip '.$drink. 'cl, left '.$remain.' cl of coffee';
         $this->quantity = $remain;
       }
       else {
@@ -41,38 +41,19 @@ class CoffeeCup
     $this->volume = $volume;
   }
 
-  //Setters:
-  // public function setQuantity($quantity)
-  // {
-  //   $this->quantity = $quantity;
-  // }
-
-  // public function setBrand($brand)
-  // {
-  //   $this->brand = $brand;
-  // }
-
-  // public function setTemperature($degree)
-  // {
-  //    return $this->temperature = $degree;
-  // }
+  
 
 public function reHeat($degree)
 {
   $this->degree = $degree; 
-  //-> no chance to assign a new property
-  //when it's not defined in Constractor?
-  if($degree < $this->temperature)
-    $reheat = $this->temperature - $degree;
-    return 'new coffee temp is: '.$degree.' degree. And the coffee needs 
-    to be reheated for: '.$reheat;
+  $reheat = $this->temperature - $degree;
+  return 'new coffee temp is: '.$degree.' degree. And the coffee needs 
+  to be reheated for: '.$reheat;
 }
 
 public function coolDown($degree){
-  if($degree > $this->temperature)
-    $cooldown = -($this->temperature) + $degree;
-    return 'new coffee temp is: '.$degree.' degree. And the coffee needs 
-    to be cooleddown for: '.$cooldown;
+  $this->temperature = $this->temperature - $degree;
+  return 'new coffee temp is: '.$this->temperature;
 }
   //volume:
   public function setVolume($volume)
@@ -81,23 +62,23 @@ public function coolDown($degree){
   }
 
   //Getters:
-  public function getQuantity($quantity)
+  public function getQuantity()
   {
-    return $this->$quantity;
+    return $this->quantity;
   }
 
-  public function getBrand($brand)
+  public function getBrand()
   {
-    return $this->$brand;
+    return $this->brand;
   }
-  public function getTemperature($temperature)
+  public function getTemperature()
   {
-    return $this->$temperature;
+    return $this->temperature;
   }
   //volume:
-  public function getVolume($volume)
+  public function getVolume()
   {
-    return $this->$volume;
+    return $this->volume;
   }
 
 }
