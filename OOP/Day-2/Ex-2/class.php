@@ -7,18 +7,18 @@ require_once 'human.php';
 require_once 'elf.php';
 
 $orc1 = new Orcs('OORC', 'orcs');
-//var_dump($orc1);
+// //var_dump($orc1);
+// $orc1->usePower();
+// var_dump($orc1);
 
-$elf1 = new Elfs('Leo', 'elf');
-$sword = new Equipment("sword", "Death Sword", 10, 0, 0);
-$elf1->equip($sword);
-var_dump($elf1);
-echo $orc1->attack('elf');
-//$elf1->attack($orc1);
-//var_dump($elf1);
-//$human->warcry();
-// var_dump($human);
+// $elf1 = new Elfs('Leo', 'elf');
+// $sword = new Equipment("sword", "Death Sword", 10, 0, 0);
+// $elf1->equip($sword);
 
+$human1 = new Humans('HomoNeandertal', 'humans');
+$human1->equip(null);
+$human1->attack($orc1);
+var_dump($human1);
 
 
 $sword2 = new Equipment("sword", "Life Sword", 20, 0, 0);

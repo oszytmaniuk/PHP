@@ -5,7 +5,7 @@ class Adventurer
 {
     protected $_name;
     // Default points
-    protected $_health;
+    public $_health;
     protected $_attack = 10;
     protected $_defense = 5;
     // Actual points
@@ -14,7 +14,8 @@ class Adventurer
     protected $_bDefense = 5;
     protected $_race;
     protected $_warcry;
-    protected $_equipment = [];
+    public $_equipment = [];
+    protected $_power;
     //protected $_speed;
 
 
@@ -22,6 +23,7 @@ class Adventurer
     public function __construct($name, $race)
     {
         $this->_health = 100;
+        $this->_power = true;
        $this->_name = $name;
        $this->_race = $race;
        if ($race === 'orcs') {
