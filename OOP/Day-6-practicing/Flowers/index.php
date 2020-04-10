@@ -43,6 +43,7 @@
                     //callback function that will be triggered on success:
                     success: function(result) {
                         $('#result').html(result);
+                        location.href = 'viewFlower.php'
                     },
                     //callback function that will be triggered on failure:
                     error: function(err) {
